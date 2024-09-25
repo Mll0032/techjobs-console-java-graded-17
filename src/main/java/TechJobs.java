@@ -118,8 +118,27 @@ public class TechJobs {
     }
 
     // Print a list of jobs
+    //line 122 assigns an ArrayList<hashMap<String, String> from the JobData Class assigns that data to someJobs.
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-
-        System.out.println("printJobs is not implemented yet");
+        //if someJobs is empty display "No Results"
+        if (someJobs.isEmpty()) {
+            System.out.println("No Results");
+            //If someJobs is NOT empty build an array containing keys for job fields
+        } else {
+            String[] fields = {"name", "employer", "location", "position type", "core competency"};
+            //format and display the information
+            for (HashMap<String, String> job : someJobs) {
+                System.out.println("*****");
+                //Iterate over each field in the fields array and print the field name and value.
+                for (String field : fields) {
+                    String value = job.get(field);
+                    if (value == null || value.isEmpty()) {
+                        value = "Data not available";
+                    }
+                    System.out.println(field + ": " + value);
+                }
+                System.out.println("*****\n");
+            }
+        }
     }
 }
