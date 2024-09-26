@@ -62,7 +62,7 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    System.out.println("Search all fields not implemented yet.");
+                    printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -125,10 +125,10 @@ public class TechJobs {
             System.out.println("No Results");
             //If someJobs is NOT empty build an array containing keys for job fields
         } else {
-            String[] fields = {"name", "employer", "location", "position type", "core competency"};
+            String[] fields = {"position type", "name", "employer", "location", "core competency"};
             //format and display the information
             for (HashMap<String, String> job : someJobs) {
-                System.out.println("*****");
+                System.out.println("\n*****");
                 //Iterate over each field in the fields array and print the field name and value.
                 for (String field : fields) {
                     String value = job.get(field);
@@ -137,7 +137,7 @@ public class TechJobs {
                     }
                     System.out.println(field + ": " + value);
                 }
-                System.out.println("*****\n");
+                System.out.println("*****");
             }
         }
     }
