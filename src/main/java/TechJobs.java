@@ -122,7 +122,7 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         //if someJobs is empty display "No Results"
         if (someJobs.isEmpty()) {
-            System.out.println("No Results");
+            System.out.print("No Results");
             //If someJobs is NOT empty build an array containing keys for job fields
         } else {
             String[] fields = {"position type", "name", "employer", "location", "core competency"};
